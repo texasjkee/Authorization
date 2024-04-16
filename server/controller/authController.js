@@ -39,10 +39,25 @@ const logOutController = (req, res) => {
   res.sendStatus(200)
 }
 
-const takeProfileController = (req, res) => res.send('admin')
+const takeProfileController = (req, res) => {
+  console.log(req)
+  res.send('admin')
+}
+
+const refreshController = (req, res) => {
+  const { accessToken, refreshToken } = getTokens(req.user.login)
+
+  res.setHeader('Set-Cookie', cookie.serialize('refreshToken', refreshToken), {
+    httpOnly: true,
+    maxAge: 1000 * 60 * 60
+  })
+
+  res.send({ accessToken })
+}
 
 module.exports = {
   logInController,
   logOutController,
-  takeProfileController
+  takeProfileController,
+  refreshController
 }

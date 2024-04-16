@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/triple-slash-reference': 0,
     '@typescript-eslint/consistent-type-imports': 0,
     '@typescript-eslint/no-unsafe-argument': 0,
+    '@typescript-eslint/no-explicit-any': 0,
     'multiline-ternary': 0,
     'spaced-comment': 0,
     'no-unused-vars': 0,
